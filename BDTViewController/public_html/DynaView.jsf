@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="DynaView.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:outputText value="Dynamic View" id="ot1" inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelCollection id="pc1">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t2">
+                                    <af:button text="Back" id="b1" action="back"/>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.DynaView1.collectionModel}" var="row"
+                                      rows="#{bindings.DynaView1.rangeSize}"
+                                      emptyText="#{bindings.DynaView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.DynaView1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.DynaView1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.DynaView1.rangeSize}" id="t1">
+                                <af:iterator id="i1" value="#{bindings.DynaView1.attributesModel.attributes}"
+                                             var="column" rows="0">
+                                    <af:column headerText="#{column.label}" sortProperty="#{column.name}"
+                                               sortable="true" id="c1">
+                                        <af:dynamicComponent id="d2" attributeModel="#{column}"
+                                                             value="#{row.bindings[column.name].inputValue}"/>
+                                    </af:column>
+                                </af:iterator>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

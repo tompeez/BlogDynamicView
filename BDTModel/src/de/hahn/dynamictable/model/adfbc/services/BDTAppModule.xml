@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BDTAppModule"
+  Version="12.2.1.16.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="de.hahn.dynamictable.model.adfbc.services.BDTAppModuleImpl"
+  ComponentInterface="de.hahn.dynamictable.model.adfbc.services.common.BDTAppModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="DynaView1"
+    ViewObjectName="de.hahn.dynamictable.model.adfbc.views.DynaView"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="createDynaView"
+      MethodName="createDynaView">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="sql"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

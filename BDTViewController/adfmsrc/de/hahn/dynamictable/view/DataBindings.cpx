@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.16.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="de.hahn.dynamictable.view" ClientType="Generic">
+  <pageMap>
+    <page path="/DynaView.jsf" usageId="de_hahn_dynamictable_view_DynaViewPageDef"/>
+    <page path="/index.jsf" usageId="de_hahn_dynamictable_view_indexPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="de_hahn_dynamictable_view_DynaViewPageDef" path="de.hahn.dynamictable.view.pageDefs.DynaViewPageDef"/>
+    <page id="de_hahn_dynamictable_view_indexPageDef" path="de.hahn.dynamictable.view.pageDefs.indexPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="BDTAppModuleDataControl" Package="de.hahn.dynamictable.model.adfbc.services"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="BDTAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

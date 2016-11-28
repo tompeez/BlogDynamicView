@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.16.48" id="indexPageDef"
+                Package="de.hahn.dynamictable.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="createDynaView_sql" IsQueriable="false"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="createDynaView" RequiresUpdateModel="true" Action="invokeMethod" MethodName="createDynaView"
+                  IsViewObjectMethod="false" DataControl="BDTAppModuleDataControl"
+                  InstanceName="bindings.createDynaView.dataControl.dataProvider">
+      <NamedData NDName="sql" NDType="java.lang.String" NDValue="${bindings.createDynaView_sql}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="sql">
+      <AttrNames>
+        <Item Value="createDynaView_sql"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

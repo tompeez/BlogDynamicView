@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="de.hahn.dynamictable.model.adfbc.services.BDTAppModule">
+    <AppModuleConfig name="BDTAppModuleLocal" jbo.project="de.hahn.dynamictable.model.BDTModel"
+                     ApplicationName="de.hahn.dynamictable.model.adfbc.services.BDTAppModule" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/HRConnDS"/>
+      <Security AppModuleJndiName="de.hahn.dynamictable.model.adfbc.services.BDTAppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="BDTAppModuleShared" jbo.project="de.hahn.dynamictable.model.BDTModel"
+                     ApplicationName="de.hahn.dynamictable.model.adfbc.services.BDTAppModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/HRConnDS"/>
+      <Security AppModuleJndiName="de.hahn.dynamictable.model.adfbc.services.BDTAppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

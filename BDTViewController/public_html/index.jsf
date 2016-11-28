@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                        <af:outputText value="Define Dynamic View" id="ot1" inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.sql.inputValue}" label="SQL Statement for Dynamic View"
+                                          required="#{bindings.sql.hints.mandatory}"
+                                          columns="#{bindings.sql.hints.displayWidth}"
+                                          maximumLength="#{bindings.sql.hints.precision}"
+                                          shortDesc="#{bindings.sql.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.sql.validator}"/>
+                            </af:inputText>
+                            <af:button actionListener="#{bindings.createDynaView.execute}" text=" Create Dynamic View"
+                                       disabled="#{!bindings.createDynaView.enabled}" id="b1" action="go"/>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
