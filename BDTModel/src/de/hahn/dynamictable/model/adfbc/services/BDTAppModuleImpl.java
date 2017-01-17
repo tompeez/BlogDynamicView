@@ -2,6 +2,9 @@ package de.hahn.dynamictable.model.adfbc.services;
 
 import de.hahn.dynamictable.model.adfbc.services.common.BDTAppModule;
 
+import oracle.adf.share.logging.ADFLogger;
+
+import oracle.jbo.AttributeDef;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewObjectImpl;
@@ -12,6 +15,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class BDTAppModuleImpl extends ApplicationModuleImpl implements BDTAppModule {
+    private static ADFLogger _logger = ADFLogger.createADFLogger(BDTAppModuleImpl.class);
     /**
      * This is the default constructor (do not remove).
      */
@@ -40,6 +44,10 @@ public class BDTAppModuleImpl extends ApplicationModuleImpl implements BDTAppMod
         
         if (sql != null) {
             vo = this.createViewObjectFromQueryStmt("DynaView1", sql);
+            AttributeDef[] attributeDef = vo.getAttributeDefs();
+            for (AttributeDef adef : attributeDef) {
+               _logger.info("Information: " + adef.getName());
+            }
             vo.executeQuery();
         }
     }
